@@ -1,0 +1,11 @@
+#!/bin/bash
+
+MODIFIED_PY_FILES=$(git diff --name-only --cached --diff-filter=ACMRT | grep -G ".py\$")
+
+SCORE=$(pylint $MODIFIED_PY_FILES | tail -n 2 | head -n 1 | cut -d " " -f7 | cut -d "/" -f1)
+
+if (( $(echo "$SCORE < 9" | bc -l) ))
+then
+    echo "Score too small $SCORE"
+    exit 1
+fi
