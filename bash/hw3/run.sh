@@ -14,8 +14,10 @@ line_number=$(wc -l <$input_file)
 
 lines_in_train=$(( (line_number * train_ratio) / 100 ))
 
+data=$(shuf $input_file)
+
 echo "train:"
-head -n $lines_in_train $input_file 
+echo "$data" | head -n $lines_in_train 
 
 echo "validate:"
-tail -n $(($line_number - $lines_in_train)) $input_file
+echo "$data" | tail -n $(($line_number - $lines_in_train))
