@@ -10,11 +10,11 @@ do
     esac
 done
 
-line_number=$(wc -l <$input_file)
+line_number=$(($(wc -l <$input_file) - 1))
 
 lines_in_train=$(( (line_number * train_ratio) / 100 ))
 
-data=$(shuf $input_file)
+data=$(tail -n+2 $input_file | shuf)
 
 echo "train:"
 echo "$data" | head -n $lines_in_train 
