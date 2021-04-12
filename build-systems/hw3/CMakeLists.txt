@@ -18,8 +18,16 @@ set_target_properties(
     INSTALL_RPATH "$ORIGIN/../lib"
 )
 
+set_target_properties(
+    buffer
+    PROPERTIES
+    PUBLIC_HEADER include/buffer.h
+)
+
+
 install(
 	TARGETS Main MainLib buffer
 	RUNTIME DESTINATION bin
 	LIBRARY DESTINATION lib
+	PUBLIC_HEADER DESTINATION include
 )
