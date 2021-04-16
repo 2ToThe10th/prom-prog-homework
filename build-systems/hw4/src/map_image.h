@@ -8,6 +8,6 @@
 #include "Map.h"
 #include <memory>
 
-void MapImage(std::shared_ptr<Map> map, const std::string &image_path);
+void MapImage(std::shared_ptr<Map> map, const std::string &image_path, const std::string &output_path);
 
 #endif //HW4_SRC_MAP_IMAGE_H_

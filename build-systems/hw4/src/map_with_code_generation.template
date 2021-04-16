@@ -1,0 +1,26 @@
+//
+// Created by 2ToThe10th on 16.04.2021.
+//
+
+#ifndef HW4_SRC_MAP_WITH_CODE_GENERATION_H_
+#define HW4_SRC_MAP_WITH_CODE_GENERATION_H_
+
+#include <cstdint>
+#include <memory>
+#include "Map.h"
+
+class MapWithCodeGeneration : public Map {{
+ public:
+  static constexpr int kArraySize = 256;
+
+  [[nodiscard]] uint8_t GetR(unsigned char index) const override;
+  [[nodiscard]] uint8_t GetG(unsigned char index) const override;
+  [[nodiscard]] uint8_t GetB(unsigned char index) const override;
+
+ private:
+  uint8_t r_[kArraySize] = {red_array};
+  uint8_t g_[kArraySize] = {green_array};
+  uint8_t b_[kArraySize] = {blue_array};
+}};
+
+#endif //HW4_SRC_MAP_WITH_CODE_GENERATION_H_

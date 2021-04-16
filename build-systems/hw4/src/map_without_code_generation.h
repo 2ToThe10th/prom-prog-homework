@@ -16,14 +16,14 @@ class MapWithoutCodeGeneration : public Map {
  public:
   static constexpr int kArraySize = 256;
 
-  [[nodiscard]] const uint8_t *GetR() const override;
-  [[nodiscard]] const uint8_t *GetG() const override;
-  [[nodiscard]] const uint8_t *GetB() const override;
+  [[nodiscard]] uint8_t GetR(unsigned char index) const override;
+  [[nodiscard]] uint8_t GetG(unsigned char index) const override;
+  [[nodiscard]] uint8_t GetB(unsigned char index) const override;
 
  private:
-  uint8_t r[kArraySize]{};
-  uint8_t g[kArraySize]{};
-  uint8_t b[kArraySize]{};
+  uint8_t r_[kArraySize]{};
+  uint8_t g_[kArraySize]{};
+  uint8_t b_[kArraySize]{};
 
   MapWithoutCodeGeneration() = default;
 };

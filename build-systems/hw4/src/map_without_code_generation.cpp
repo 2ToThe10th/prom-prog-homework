@@ -19,21 +19,21 @@ std::shared_ptr<MapWithoutCodeGeneration> MapWithoutCodeGeneration::CreateMapFro
   }
   auto map = std::shared_ptr<MapWithoutCodeGeneration>(new MapWithoutCodeGeneration());
   for (int i = 0; i < kArraySize; ++i) {
-    map->r[i] = filter.at<cv::Vec3b>(0, i).val[2];
-    map->g[i] = filter.at<cv::Vec3b>(1, i).val[1];
-    map->b[i] = filter.at<cv::Vec3b>(2, i).val[0];
+    map->r_[i] = filter.at<cv::Vec3b>(0, i).val[2];
+    map->g_[i] = filter.at<cv::Vec3b>(1, i).val[1];
+    map->b_[i] = filter.at<cv::Vec3b>(2, i).val[0];
   }
   return map;
 }
 
-const uint8_t *MapWithoutCodeGeneration::GetR() const {
-  return r;
+uint8_t MapWithoutCodeGeneration::GetR(unsigned char index) const {
+  return r_[index];
 }
 
-const uint8_t *MapWithoutCodeGeneration::GetG() const {
-  return g;
+uint8_t MapWithoutCodeGeneration::GetG(unsigned char index) const {
+  return g_[index];
 }
 
-const uint8_t *MapWithoutCodeGeneration::GetB() const {
-  return b;
+uint8_t MapWithoutCodeGeneration::GetB(unsigned char index) const {
+  return b_[index];
 }

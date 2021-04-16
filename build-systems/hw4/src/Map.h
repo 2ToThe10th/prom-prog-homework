@@ -7,9 +7,9 @@
 
 class Map {
  public:
-  [[nodiscard]] virtual const uint8_t *GetR() const = 0;
-  [[nodiscard]] virtual const uint8_t *GetG() const = 0;
-  [[nodiscard]] virtual const uint8_t *GetB() const = 0;
+  [[nodiscard]] virtual uint8_t GetR(unsigned char index) const = 0;
+  [[nodiscard]] virtual uint8_t GetG(unsigned char index) const = 0;
+  [[nodiscard]] virtual uint8_t GetB(unsigned char index) const = 0;
 };
 
 #endif //HW4_SRC_MAP_H_
